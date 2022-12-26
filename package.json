@@ -1,0 +1,43 @@
+{
+  "name": "vue-resizable-panels",
+  "version": "0.0.1",
+  "description": "Vue components for resizable panel groups/layouts",
+  "author": "Mujahid Anuar <mujahidfanuar@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujahidfa/vue-resizable-panels.git"
+  },
+  "type": "module",
+  "main": "./dist/vue-resizable-panels.cjs",
+  "module": "./dist/vue-resizable-panels.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/vue-resizable-panels.cjs",
+      "import": "./dist/vue-resizable-panels.mjs"
+    }
+  },
+  "types": "./dist/vue-resizable-panels.d.ts",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier . --write"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^20.0.0",
+    "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "dts-bundle-generator": "^6.13.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3",
+    "vite": "^4.0.3",
+    "vue": "^3.2.45"
+  }
+}
