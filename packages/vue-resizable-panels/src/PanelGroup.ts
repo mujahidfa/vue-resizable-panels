@@ -97,6 +97,8 @@ export const PanelGroup = defineComponent({
     // 0-1 values representing the relative size of each panel.
     const sizes = ref<number[]>([]);
 
+    // Resize is calculated by the distance between the current pointer event and the resize handle being "dragged"
+    // This value accounts for the initial offset when the touch/click starts, so the handle doesn't appear to "jump"
     const dragOffsetRef = ref<number>(0);
 
     // Used to support imperative collapse/expand API.
@@ -124,7 +126,32 @@ export const PanelGroup = defineComponent({
         const { onLayout } = callbacksRef.value;
         if (onLayout) {
           const { sizes } = committedValuesRef.value;
-          onLayout(sizes);
+
+          // Don't commit layout until all panels have registered and re-rendered with their actual sizes.
+          if (sizes.length > 0) {
+            onLayout(sizes);
+          }
+        }
+      },
+      { immediate: true }
+    );
+
+    // Notify Panel listeners about their initial sizes and collapsed state after mount.
+    // Subsequent changes will be called by the resizeHandler.
+    const didNotifyCallbacksAfterMountRef = ref(false);
+    watch(
+      [sizes],
+      () => {
+        if (didNotifyCallbacksAfterMountRef.value) {
+          return;
+        }
+
+        const { panels, sizes } = committedValuesRef.value;
+        if (sizes.length > 0) {
+          didNotifyCallbacksAfterMountRef.value = true;
+
+          const panelsArray = panelsMapToSortedArray(panels);
+          callPanelCallbacks(panelsArray, [], sizes);
         }
       },
       { immediate: true }
