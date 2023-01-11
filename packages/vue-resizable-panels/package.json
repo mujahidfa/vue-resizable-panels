@@ -1,7 +1,7 @@
 {
   "name": "vue-resizable-panels",
-  "version": "0.1.0",
-  "description": "This is the best Vue library ever!",
+  "version": "0.0.1",
+  "description": "An intuitive resizable panel groups/layouts components for Vue.",
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",

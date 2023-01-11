@@ -1,47 +1,69 @@
 # vue-resizable-panels
 
-A monorepo starter for Vue libraries. Written in TypeScript and supports TSX.
+An intuitive resizable panel groups/layouts components for Vue.
 
-## Features
-
-1. Vite
-2. TypeScript
-3. Supports both Vue SFCs and Vue TSX components
-4. pnpm
-5. ESLint and Prettier
-6. Vitest and Playwright for testing (soon)
-7. GitHub Actions for CI and release (soon)
+Based on [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels).
 
 ## Installation
 
-1. Download the repo. You can either:
+Install the package:
 
-   a. Clone the repo without the git history:
+```sh
+npm install vue-resizable-panels
+# or
+pnpm install vue-resizable-panels
+# or
+yarn add vue-resizable-panels
+```
 
-   ```sh
-   pnpx degit https://github.com/mujahidfa/vue-resizable-panels
-   ```
+Import the components directly:
 
-   b. Or, create a repo based on this template via the [GitHub template generator](https://github.com/mujahidfa/vue-resizable-panels/generate).
+```vue
+<script setup lang="ts">
+import { Panel, PanelGroup, PanelResizeHandle } from "vue-resizable-panels";
+</script>
 
-2. Install packages.
+<template>
+  <div>
+    <PanelGroup direction="horizontal">
+      <Panel :defaultSize="20" :minSize="20">
+        <div>left</div>
+      </Panel>
+      <PanelResizeHandle />
+      <Panel :minSize="30">
+        <div>middle</div>
+      </Panel>
+      <PanelResizeHandle />
+      <Panel :defaultSize="20" :minSize="20">
+        <div>right</div>
+      </Panel>
+    </PanelGroup>
+  </div>
+</template>
+```
 
-   ```sh
-   pnpm install
-   ```
+For more examples, check out the [demo](./packages/demo/src/App.vue).
 
-3. Run the dev server to open up the playground.
+For API reference, check out the [react-resizable-panels's docs](https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels). The API is almost exactly the same, with minor differences as follows:
 
-   ```sh
-   cd packages/vue-resizable-panels/
-   pnpm dev
-   ```
+- No `children` prop. This is taken care of by [slots in Vue](https://vuejs.org/guide/components/slots.html).
+- No `className` prop. You can freely pass CSS classes via the `class` attribute as Vue inherits attributes by default.
 
-4. Build the library and run the demo app to see the library in action.
+## Development
 
-   ```sh
-   cd packages/vue-resizable-panels/
-   pnpm build
-   cd ../demo/
-   pnpm dev
-   ```
+```sh
+pnpm install
+
+cd packages/vue-resizable-panels/
+pnpm dev
+
+pnpm build
+cd ../demo/
+pnpm dev
+```
+
+## Credits
+
+This project was heavily inspired by the [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) library so please give some love to the library as well!
+
+Credits to [@bvaughn](https://twitter.com/brian_d_vaughn) ([GitHub](https://github.com/bvaughn)) for creating [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels)!
