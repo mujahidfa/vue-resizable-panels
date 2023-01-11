@@ -1,18 +1,47 @@
 # vue-resizable-panels
 
-Vue components for resizable panel groups/layouts.
+A monorepo starter for Vue libraries. Written in TypeScript and supports TSX.
 
-## Usage
+## Features
 
-The starter contains the following scripts:
+1. Vite
+2. TypeScript
+3. Supports both Vue SFCs and Vue TSX components
+4. pnpm
+5. ESLint and Prettier
+6. Vitest and Playwright for testing (soon)
+7. GitHub Actions for CI and release (soon)
 
-- `dev` - starts dev server
-- `build` - generates the following bundles: CommonJS (`.cjs`) ESM (`.mjs`) and IIFE (`.iife.js`). The name of bundle is automatically taked from `package.json` name property
-- `test` - starts jest and runs all tests
-- `test:coverage` - starts jest and run all tests with code coverage report
-- `lint:scripts` - lint `.ts` files with eslint
-- `lint:styles` - lint `.css` and `.scss` files with stylelint
-- `format:scripts` - format `.ts`, `.html` and `.json` files with prettier
-- `format:styles` - format `.cs` and `.scss` files with stylelint
-- `format` - format all with prettier and stylelint
-- `prepare` - script for setting up husky pre-commit hook
+## Installation
+
+1. Download the repo. You can either:
+
+   a. Clone the repo without the git history:
+
+   ```sh
+   pnpx degit https://github.com/mujahidfa/vue-resizable-panels
+   ```
+
+   b. Or, create a repo based on this template via the [GitHub template generator](https://github.com/mujahidfa/vue-resizable-panels/generate).
+
+2. Install packages.
+
+   ```sh
+   pnpm install
+   ```
+
+3. Run the dev server to open up the playground.
+
+   ```sh
+   cd packages/vue-resizable-panels/
+   pnpm dev
+   ```
+
+4. Build the library and run the demo app to see the library in action.
+
+   ```sh
+   cd packages/vue-resizable-panels/
+   pnpm build
+   cd ../demo/
+   pnpm dev
+   ```

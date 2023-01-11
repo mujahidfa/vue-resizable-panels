@@ -26,7 +26,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
-test-results/
-playwright-report/
-vite.config.ts.timestamp*
